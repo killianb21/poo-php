@@ -1,12 +1,15 @@
 <?php
-require_once('App/MatchMaker/AbstractPlayer.php');
-require_once('App/MatchMaker/BlitzPlayer.php');
-require_once('App/MatchMaker/lobby.php');
-require_once('App/MatchMaker/Player.php');
-require_once('App/MatchMaker/QueuingPlayer.php');
+
+declare(strict_types=1);
+namespace App\Domain\MatchMaker\Player;
+
 
 class Player extends AbstractPlayer
 {
+    public function __construct(string $name, float $ratio = 400.0)
+    {
+    }
+
     public function getName(): string
     {
         return $this->name;

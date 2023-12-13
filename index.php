@@ -8,14 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-require_once('App/MatchMaker/AbstractPlayer.php');
-require_once('App/MatchMaker/BlitzPlayer.php');
-require_once('App/MatchMaker/lobby.php');
-require_once('App/MatchMaker/Player.php');
-require_once('App/MatchMaker/QueuingPlayer.php');
-
 declare(strict_types=1);
+namespace App\Domain\MatchMaker\Player;
+
+use App\Domain\MatchMaker\Lobby;
+use App\Domain\MatchMaker\Player\Player;
+
+spl_autoload_register(static function ($fqcn): void {
+    $path = sprintf('%s.php', str_replace(['App\\Domain', '\\'], ['src', '/'], $fqcn));
+    require_once($path);
+});
 
 $greg = new BlitzPlayer('greg');
 $jade = new BlitzPlayer('jade');
